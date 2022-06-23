@@ -1,25 +1,10 @@
 <?php
-//composer require vlucas/phpdotenv
-// require 'vendor/autoload.php';
-// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-// $dotenv->load();
-// var_dump(getenv());
-
 //GET Request - All Repos
-//Create header
-$headers = [
-    "User-Agent: Php Curl Git",
-    "Authorization: token "
-];
 
-//Curl session - create request
-$ch = curl_init("https://api.github.com/user/repos");
-
-//Github requires valid api header - attach header to request
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-//Response will be returned as string
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//Creating sessions
+$ch=require "init_curl.php";
+//set url as option
+curl_setopt($ch,CURLOPT_URL,"https://api.github.com/user/repos");
 
 //Send request
 $response = curl_exec($ch);
