@@ -5,7 +5,7 @@
 // $dotenv->load();
 // var_dump(getenv());
 
-//GET Request 
+//GET Request - All Repos
 //Create header
 $headers = [
     "User-Agent: Php Curl Git",
@@ -34,12 +34,6 @@ $data = json_decode($response, true);
 //Outputs -structured info on diffrent variable - type,value
 //var_dump($data)
 
-//Loop through array of results
-// foreach($data as $repository){
-//     echo $repository["full_name"]," ",
-//         $repository["description"],"<br>";
-// };
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +47,7 @@ $data = json_decode($response, true);
 <body>
     <main>
         <h1>Repositories</h1>
+        <!--show data with table element-->
         <table>
             <thead>
                 <tr>
@@ -64,7 +59,11 @@ $data = json_decode($response, true);
             <tbody>
                 <?php foreach ($data as $repository) : ?>
                     <tr>
-                        <td><?= $repository["name"] ?></td>
+                        <td>
+                            <a href="show.php?full_name=<?= $repository["full_name"] ?>">
+                                <?= $repository["name"] ?>
+                        </td>
+                        </a>
                         <td><?= htmlspecialchars($repository["description"]) ?></td>
                     </tr>
                 <?php endforeach; ?>
