@@ -1,10 +1,15 @@
 <?php
-//GET Request 
+//composer require vlucas/phpdotenv
+// require 'vendor/autoload.php';
+// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+// $dotenv->load();
+// var_dump(getenv());
 
+//GET Request 
 //create header
 $headers = [
     "User-Agent: Php Curl Git",
-    "Authorization: token missing_token"
+    "Authorization: TOKEN MISSING"
 ];
 
 //curl session
