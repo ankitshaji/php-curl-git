@@ -6,35 +6,35 @@
 // var_dump(getenv());
 
 //GET Request 
-//create header
+//Create header
 $headers = [
     "User-Agent: Php Curl Git",
     "Authorization: TOKEN MISSING"
 ];
 
-//curl session
+//Curl session
 $ch = curl_init("https://api.github.com/user/repos");
 
-//github requires valid api header - attach header to request
+//Github requires valid api header - attach header to request
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-//response will be returned as string
+//Response will be returned as string
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-//send request
+//Send request
 $response = curl_exec($ch);
 
-//close sessions 
+//Close sessions 
 curl_close($ch);
 
 //String with json data - decoded into phpobject
-//get assosiative arrays - json_decode($response,true))
+//Get assosiative arrays - json_decode($response,true))
 $data = json_decode($response, true);
 
-//output -structured info on diffrent variable - type,value
+//Outputs -structured info on diffrent variable - type,value
 //var_dump($data)
 
-//loop through array of results
+//Loop through array of results
 // foreach($data as $repository){
 //     echo $repository["full_name"]," ",
 //         $repository["description"],"<br>";
