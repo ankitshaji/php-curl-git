@@ -9,10 +9,10 @@
 //Create header
 $headers = [
     "User-Agent: Php Curl Git",
-    "Authorization: TOKEN MISSING"
+    "Authorization: token "
 ];
 
-//Curl session
+//Curl session - create request
 $ch = curl_init("https://api.github.com/user/repos");
 
 //Github requires valid api header - attach header to request
@@ -46,30 +46,33 @@ $data = json_decode($response, true);
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <title>PHP CURL GIT</title>
 </head>
 
 <body>
-    <h1>Repositories</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <?php foreach($data as $repository):?>
+    <main>
+        <h1>Repositories</h1>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= $repository["name"]?></td>
-                    <td><?= htmlspecialchars($repository["description"])?></td>
+                    <th>Name</th>
+                    <th>Description</th>
                 </tr>
-                <?php endforeach;?>
+            </thead>
 
-        </tbody>
+            <tbody>
+                <?php foreach ($data as $repository) : ?>
+                    <tr>
+                        <td><?= $repository["name"] ?></td>
+                        <td><?= htmlspecialchars($repository["description"]) ?></td>
+                    </tr>
+                <?php endforeach; ?>
 
-    </table>
+            </tbody>
+
+        </table>
+    </main>
 </body>
 
 </html>
