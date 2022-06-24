@@ -46,4 +46,5 @@ $data = json_decode($response, true);
     </tbody>
 
 </table>
+<a href="form.php">Create New</a>
 <?php require "footer.html"; ?>
