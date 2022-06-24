@@ -10,7 +10,7 @@
 //Create header
 $headers = [
     "User-Agent: Php Curl Git",
-    "Authorization: token "
+    "Authorization: token TOKEN_HERE"
 ];
 
 //Curl session - create request
