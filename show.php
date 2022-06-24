@@ -31,4 +31,5 @@ $data = json_decode($response, true);
     <dd><?= htmlspecialchars($data["description"]) ?></dd>
 
 </dl>
+<a href="edit.php?full_name=<?= $data["full_name"] ?>">Edit</a>
 <?php require "footer.html"; ?>
